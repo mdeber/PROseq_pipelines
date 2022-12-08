@@ -215,7 +215,7 @@ then
 		TRIMMED_READS=$(cat logs/fastp/fastp_${SAMPLE}.log |
 			grep "total reads:" | tail -n 1 |
 			awk '{print $3}');	
-		PER_PASSED_TRIM=$(echo "(1-"${TRIMMED_READS}"/"${RAW_READS}")*100" | bc -l)%;
+		PER_PASSED_TRIM=$(echo "("${TRIMMED_READS}"/"${RAW_READS}")*100" | bc -l)%;
 		
 		NON_RRNA=$(cat logs/bowtie2/bt2_${SAMPLE}.log |
 			grep "reads; of these:$" |
